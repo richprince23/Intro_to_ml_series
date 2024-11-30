@@ -24,14 +24,14 @@ with open('data.csv', mode='r') as file:
     weight = []
     gallon  = []
 
-    # Step 3: Iterate through the rows
+    # Iterate through the rows
     for row in csv_reader:
 
         weight.append([float(row[0])]) # use 2d array for the feature - weight of vehicle
         gallon.append(float(row[1]))
 
 
-plt.plot(weight, gallon)
+
 
 # create Linear Regression model
 model = LinearRegression()
