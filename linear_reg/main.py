@@ -1,4 +1,4 @@
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
 # import pandas as pd
 import csv
@@ -31,6 +31,8 @@ with open('data.csv', mode='r') as file:
         gallon.append(float(row[1]))
 
 
+plt.plot(weight, gallon)
+
 # create Linear Regression model
 model = LinearRegression()
 
@@ -43,7 +45,16 @@ print(f"Model Coefficient (Slope): {model.coef_[0]:.2f}")
 print(f"Model Intercept: {model.intercept_:.2f}")
 
 # new prediction
-new_res = model.predict([[3.22]])
+
+# accept use input and predict from it
+
+new_weight =  input("Enter weight of the car: ")
+
+# convert to a 2d array
+new_weight = [[float(new_weight)]]
+
+# use user supplied value in prediction
+new_res = model.predict(new_weight)
 
 # print predicted value
-print(new_res)
+print(f"Fuel Consupmtion for a car of weight {new_weight[0]}  is {new_res[0]} miles per gallon")
